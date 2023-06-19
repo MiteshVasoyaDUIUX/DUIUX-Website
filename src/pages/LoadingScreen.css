@@ -1,0 +1,41 @@
+.loading-screen {
+      background-image: url("https://firebasestorage.googleapis.com/v0/b/shoppingsite-e25c4.appspot.com/o/Animation%20Images%2Fwallpaperflare.com_wallpaper.jpg?alt=media&token=3acf5be6-f550-497a-9314-af4317a9a40a&_gl=1*1t38r5v*_ga*MTQ0NDc5MjA1NS4xNjg1OTU5NDg2*_ga_CW55HF8NVT*MTY4NjAyNDE2Mi4yLjEuMTY4NjAyNjE0OC4wLjAuMA..");
+      background-size: cover;
+      border: 1px solid rgba(255, 0, 0, 0);
+      box-sizing: border-box;
+      height: 100vh;
+      width: 100vw;
+}
+
+.loading-content {
+      /* border: 1px solid red; */
+      color: aliceblue;
+      box-sizing: border-box;
+      width: 50%;
+      height: fit-content;
+      margin: 40vh auto 0 auto;
+}
+
+.loading-title {
+      margin: auto;
+      width: fit-content;
+      height: fit-content;
+      font-family: 'Geologica', sans-serif;
+      font-size: 30px;
+      font-weight: 600;
+}
+
+.loading-bar {
+      border: 1px solid rgba(211, 211, 211, 0.446);
+      background-color: rgba(0, 0, 0, 0.383);
+      box-sizing: border-box;
+      margin: 20px 0 0 0;
+      height: fit-content;
+}
+
+.loading-bar #progress-bar {
+      height: 10px;
+      width: 1%;
+      background-color: rgb(243, 243, 243);
+      box-sizing: border-box;
+}

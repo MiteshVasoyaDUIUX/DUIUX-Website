@@ -1,0 +1,604 @@
+@keyframes aboutusAnim {
+      0% {
+            opacity: 0;
+      }
+
+      100% {
+            opacity: 1;
+      }
+}
+
+.aboutus-page {
+      /* border: 3px solid rgb(67, 83, 67); */
+      background-color: black;
+      max-width: 100vw;
+      height: fit-content;
+      margin-top: 60px;
+      box-sizing: border-box;
+      animation: 1s ease-in-out 0s 1 aboutusAnim;
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+}
+
+.aboutus-page>.div1 {
+      /* border: 2px solid red; */
+      height: calc(100vh - 60px);
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      /* position: relative; */
+}
+
+.aboutus-page>.page-title {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.726);
+      width: fit-content;
+      text-align: center;
+      height: 3.5vw;
+      /* margin: 0 auto auto auto; */
+      box-sizing: border-box;
+      /* transform: rotate(-45deg); */
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 2.5vw;
+      color: white;
+      position: absolute;
+      top: 1.5vw;
+      left: calc(100%/2 - 5vw);
+}
+
+.div1>.owner-box {
+      /* border: 1px solid #c08715e3; */
+      height: 13vw;
+      width: 60%;
+      margin: 5vw auto auto 0;
+      background-color: #c08715e3;
+      display: flex;
+      flex-direction: row;
+}
+
+.owner-box>.owner-img {
+      /* border: 1px solid red; */
+      border-radius: 2vw 0px;
+      background-color: white;
+      box-shadow: 0 0 5px 2px black;
+      width: 19vw;
+      height: 19vw;
+      padding: 10px;
+      box-sizing: border-box;
+      margin: -5% auto auto 40%;
+      overflow: hidden;
+}
+
+.owner-img>img {
+      width: 100%;
+      height: 100%;
+}
+
+.owner-box>.owner-info {
+      border: 1px solid #3ea5b9;
+      border-radius: 8px;
+      background-color: #3ea5b9;
+      box-shadow: 0 0 3px 1px black;
+      width: 40%;
+      height: 25vw;
+      margin: 8% -20% auto auto;
+      display: flex;
+      flex-direction: column;
+      z-index: 1;
+}
+
+.owner-info>.name {
+      width: 100%;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 2vw;
+      text-decoration: underline;
+      color: rgb(230, 230, 230);
+      margin: 0.8vw auto auto auto;
+      padding: 5px 2vw;
+      box-sizing: border-box;
+}
+
+.owner-info>.role {
+      font-family: 'Roboto Condensed', sans-serif;
+      width: 100%;
+      font-size: 1.2vw;
+      color: rgb(230, 230, 230);
+      margin: 0.1vw auto auto auto;
+      padding: 5px 2vw;
+      box-sizing: border-box;
+}
+
+.owner-info>.bio {
+      /* border: 1px solid red; */
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: .98vw;
+      text-align: justify;
+      text-indent: 1.5vw;
+      color: rgb(230, 230, 230);
+      margin: 0.2vw auto auto auto;
+      padding: 5px 2vw;
+      box-sizing: border-box;
+}
+
+.div1>.subdiv1 {
+      /* border: 1px solid green; */
+      width: 100%;
+      height: 40%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+}
+
+.subdiv1>.offerings {
+      /* border: 1px solid red; */
+      height: 100%;
+      width: 20%;
+      margin: -5% -11.5% auto auto;
+      box-sizing: border-box;
+}
+
+.offerings>p {
+      /* border: 1px solid red; */
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 2vw;
+      text-align: center;
+      margin: 0;
+}
+
+.offerings>ul {
+      /* border: 1px solid saddlebrown; */
+      margin: 10px 0;
+      list-style: inside;
+      color: rgb(255, 241, 214);
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 200;
+      font-size: 1.2vw;
+      line-height: 1.5;
+}
+
+.subdiv1>.ill-img {
+      /* border: 2px solid red; */
+      background-color: #969696;
+      width: 45%;
+      height: 100%;
+      margin: auto 0 0 auto;
+      overflow: hidden;
+      box-sizing: border-box;
+}
+
+.aboutus-page>.div2 {
+      /* border: 1px solid red; */
+      background-color: rgb(0, 0, 0);
+      height: calc(100vh - 60px);
+      max-width: 100vw;
+      box-sizing: border-box;
+}
+
+.div2>.mission, .div2>.vision {
+      /* border: 1px solid green; */
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+}
+
+.mission>.title, .vision>.title {
+      border-bottom: 2px solid rgb(255, 255, 255);
+      width: fit-content;
+      margin: 1vw auto auto 3%;
+      padding: 5px 15px;
+      /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+      font-size: 2.4vw;
+      color: white;
+      box-sizing: border-box;
+}
+
+.mission>.cards, .vision>.cards {
+      /* border: 1px solid red; */
+      width: 90%;
+      height: 20vw;
+      margin: auto auto auto auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+}
+
+.cards>div {
+      /* border: 1px solid rgb(0, 255, 0); */
+      border-radius: 15px;
+      background-color: #fdfdfd;
+      width: fit-content;
+      height: 90%;
+      display: flex;
+      flex-direction: row;
+      margin: auto auto auto auto;
+      padding: 15px;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+      transition: ease-in-out 0.2s;
+}
+
+.cards>div:hover {
+      transform: scale(1.01);
+      box-shadow: 0 0 20px 0 white;
+}
+
+.cards>div>.design {
+      border: 1px solid red;
+      background-image: linear-gradient(163deg, rgba(11, 147, 136, 1) 8%, rgba(64, 121, 9, 1) 16%, rgba(252, 252, 252, 1) 18%, rgba(241, 241, 241, 1) 86%, rgba(69, 123, 10, 1) 88%, rgba(64, 121, 9, 1) 92%, rgba(11, 147, 136, 1) 95%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transform: scale(1.5);
+      z-index: -1;
+      opacity: 0.4;
+      transition: ease-in-out 0.4s;
+}
+
+.cards>div:hover .design {
+      transform: scale(1);
+}
+
+
+.cards>div>[class*='card'] {
+      /* border: 1px solid blue; */
+      width: 23vw;
+      height: 100%;
+      margin: auto auto auto 0;
+      box-sizing: border-box;
+      z-index: 1;
+}
+
+
+
+.cards>div>.number {
+      /* border: 1px solid rgb(241, 6, 222); */
+      width: 3vw;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 2.5vw;
+      color: #3a2805;
+      text-align: center;
+      margin: auto 0 auto auto;
+}
+
+.cards>div>[class*='card']>p:nth-child(1) {
+      /* border: 1px solid gold; */
+      margin-top: 0.5vw;
+      margin-bottom: 0;
+      padding: 1px 15px;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 1.2vw;
+      font-weight: 600;
+      color: #000000;
+}
+
+.cards>div>[class*='card']>p:nth-child(2) {
+
+      padding: 5px 20px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 0.9vw;
+      font-weight: 500;
+      text-align: justify;
+      text-indent: 10%;
+      color: #000000;
+}
+
+@media only screen and (max-width: 1380px) {
+      .aboutus-page>.page-title {
+            width: fit-content;
+            font-size: 2.5vw;
+            top: 1.5vw;
+            left: calc(100%/2 - 5vw);
+      }
+
+      .div1>.owner-box {
+            /* border: 1px solid red; */
+            margin: 12% auto auto 0;
+            height: 20vw;
+      }
+
+      .owner-box>.owner-img {
+            width: 25vw;
+            height: 25vw;
+            margin: -4% auto auto 25%;
+      }
+
+      .owner-box>.owner-info {
+            width: 60%;
+            height: 30vw;
+            margin: 10% -40% auto auto;
+      }
+
+      .owner-info>.name {
+            font-size: 3.5vw;
+      }
+
+      .owner-info>.role {
+            font-size: 2vw;
+      }
+
+      .owner-info>.bio {
+            font-size: 1.3vw;
+      }
+
+      .subdiv1>.offerings {
+            margin: -1% auto auto 18%;
+            height: fit-content;
+      }
+
+      .offerings>p {
+            font-size: 2.7vw;
+      }
+
+      .offerings>ul {
+            font-size: 1.4vw;
+            padding: 0 20px;
+      }
+}
+
+@media only screen and (max-width: 1090px) {
+      .aboutus-page>.page-title {
+            width: fit-content;
+            font-size: 2.5vw;
+            top: 1.5vw;
+            left: calc(100%/2 - 5vw);
+      }
+
+      .div1>.owner-box {
+            /* border: 2px solid rgb(0, 255, 255); */
+            margin: 12% auto auto 0;
+            width: 80%;
+            height: 20vw;
+      }
+
+      .owner-box>.owner-img {
+            width: 25vw;
+            height: 25vw;
+            margin: -3% auto auto 10%;
+      }
+
+      .owner-box>.owner-info {
+            width: 60%;
+            height: 200%;
+            margin: 10% -10% auto auto;
+      }
+
+      .owner-info>.name {
+            font-size: 4vw;
+      }
+
+      .owner-info>.role {
+            font-size: 2.3vw;
+      }
+
+      .owner-info>.bio {
+            font-size: 1.8vw;
+      }
+
+      .subdiv1>.offerings {
+            margin: -10% auto auto 10%;
+            height: fit-content;
+      }
+
+      .offerings>p {
+            font-size: 2.7vw;
+      }
+
+      .offerings>ul {
+            font-size: 1.4vw;
+            padding: 0 20px;
+      }
+}
+
+@media only screen and (max-width: 860px) {
+      .aboutus-page>.page-title {
+            /* border: 2px solid rgb(4, 61, 61); */
+            width: fit-content;
+            font-size: 2.5vw;
+            top: 3vw;
+            left: calc(100%/2 - 5vw);
+      }
+
+      .div1>.owner-box {
+            /* border: 2px solid rgb(94, 255, 0); */
+            background-color: #00000000;
+            margin: 15% auto auto auto;
+            width: 90%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .owner-box>.owner-img {
+            /* border: 2px solid rgb(94, 255, 0); */
+            border-radius: 2vw;
+            width: 45vw;
+            height: 45vw;
+            margin: 0% auto auto auto;
+      }
+
+      .owner-box>.owner-info {
+            /* border: 2px solid rgb(94, 255, 0); */
+            width: 75%;
+            height: 40vw;
+            margin: 2% auto auto auto;
+      }
+
+      .owner-info>.name {
+            font-size: 4vw;
+            text-align: center;
+      }
+
+      .owner-info>.role {
+            font-size: 2.3vw;
+            text-align: center;
+      }
+
+      .owner-info>.bio {
+            font-size: 2.15vw;
+      }
+
+      .subdiv1>.offerings {
+            /* border: 2px solid rgb(94, 255, 0); */
+            margin: 2% 0 auto auto;
+            height: fit-content;
+            visibility: hidden;
+      }
+
+      .offerings>p {
+            font-size: 2.7vw;
+      }
+
+      .offerings>ul {
+            font-size: 1.4vw;
+            padding: 0 20px;
+      }
+
+      .subdiv1>.ill-img {
+            width: 0;
+            visibility: hidden;
+      }
+}
+
+@media only screen and (max-width: 540px) {
+      .aboutus-page>.page-title {
+            /* border: 2px solid rgb(42, 160, 160); */
+            padding: 3px 0;
+            width: fit-content;
+            height: fit-content;
+            font-size: 6vw;
+            top: 3vw;
+            left: calc(100%/2 - 14vw);
+      }
+
+      .aboutus-page>.div1 {
+            /* border: 2px solid red; */
+            height: 120vw;
+      }
+
+      .div1>.owner-box {
+            /* border: 2px solid rgb(94, 255, 0); */
+            background-color: #00000000;
+            margin: 19% auto auto auto;
+            width: 90%;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .owner-box>.owner-img {
+            /* border: 2px solid rgb(94, 255, 0); */
+            border-radius: 2vw;
+            width: 45vw;
+            height: 45vw;
+            margin: 0% auto auto auto;
+      }
+
+      .owner-box>.owner-info {
+            /* border: 2px solid rgb(94, 255, 0); */
+            width: 75%;
+            height: 40vw;
+            margin: 2% auto auto auto;
+      }
+
+      .owner-info>.name {
+            font-size: 3.4vw;
+            text-align: center;
+      }
+
+      .owner-info>.role {
+            font-size: 2.3vw;
+            text-align: center;
+      }
+
+      .owner-info>.bio {
+            font-size: 2vw;
+      }
+
+      .subdiv1>.offerings {
+            /* border: 2px solid rgb(94, 255, 0); */
+            margin: 2% 0 auto auto;
+            height: fit-content;
+            visibility: hidden;
+      }
+
+      .aboutus-page>.div2 {
+            /* border: 1px solid red; */
+            height: fit-content;
+      }
+
+      .mission>.title, .vision>.title {
+            margin: 1vw auto auto auto;
+      }
+
+      .div2>.mission, .div2>.vision {
+            max-width: 100vw;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .mission>.cards, .vision>.cards {
+            /* border: 1px solid red; */
+            height: fit-content;
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+      }
+
+      .cards>div {
+            /* border: 1px solid yellow; */
+            margin: 0.5vw auto 0.5vw auto;
+            width: 100%;
+            height: 20vw;
+            padding: 7px 5px;
+            box-sizing: border-box;
+      }
+
+      .cards>div>.number {
+            /* border: 1px solid rgb(241, 6, 222); */
+            width: 10%;
+            height: 100%;
+            font-size: 6vw;
+            box-sizing: border-box;
+      }
+
+      .cards>div>[class*='card'] {
+            /* border: 1px solid blue; */
+            width: 80%;
+            height: 100%;
+            margin: auto auto auto 0;
+            box-sizing: border-box;
+      }
+
+      .cards>div>.card-number {
+            /* border: 1px solid rgb(241, 6, 222); */
+            width: 1vw;
+            box-sizing: border-box;
+      }
+
+      .cards>div>[class*='card']>p:nth-child(1) {
+            font-size: 2.5vw;
+            font-weight: 600;
+            padding: 1px 15px;
+            color: #000000;
+      }
+
+      .cards>div>[class*='card']>p:nth-child(2) {
+            /* border: 1px solid gold; */
+            margin: 0vw 0 0 0;
+            padding: 2px 5px;
+            font-size: 1.6vw;
+      }
+}
