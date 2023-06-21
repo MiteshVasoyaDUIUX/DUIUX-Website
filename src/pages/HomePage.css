@@ -22,6 +22,7 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
       animation: 600ms ease-in-out 0s 1 homepage-load;
+      /* position: relative; */
 }
 
 .homepage::-webkit-scrollbar {
@@ -145,7 +146,7 @@
       margin: 14% auto auto 30%;
       border: 1px solid white;
       border-radius: 30px;
-      background-image: linear-gradient(90deg, rgba(17, 17, 17, 0.9) 50%, rgba(255, 255, 255, 1) 51%);
+      background-image: linear-gradient(90deg, rgb(0, 0, 0) 50%, rgba(255, 255, 255, 1) 51%);
       background-size: 220%;
       background-position: 100%;
       color: #000000;
@@ -153,7 +154,7 @@
       font-size: 0.8vw;
       font-weight: 800;
       opacity: 1;
-      transition: ease-in-out .30s;
+      transition: ease-in-out .40s;
 }
 
 .div1-subdiv2>.contact-btn>input[type="button"]:hover {
@@ -304,92 +305,91 @@
 }
 
 .projects>.services {
-      height: 100%;
-      width: fit-content;
-      /* border: 2px solid rgb(244, 4, 212); */
-      box-sizing: border-box;
-      display: grid;
-      grid-template-columns: 50% 50%;
-      column-gap: 10px;
+      border: 2px solid rgb(244, 4, 212);
+      height: fit-content;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* grid-template-columns: auto auto; */
+      /* gap: 10px; */
+      background-color: #000000;
+      padding: 10px;
       margin: 2vw auto auto auto;
+      box-sizing: border-box;
 }
 
-.services>div {
-      /* border: 1px solid red; */
-      width: 95%;
-      height: 21vw;
-      margin: auto auto;
+.services>.title {
+      margin: 0;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-size: 50px;
+      text-align: center;
+      text-decoration: underline;
+}
+
+
+.services>.card-slider {
+      /* border: 2px solid white; */
+      position: relative;
+}
+
+.services>.card-slider>.cards-container {
+      border: 1px solid rgb(0, 204, 255);
+      height: 80vh;
+      width: 90%;
+      margin: 1vw auto;
       display: flex;
       flex-direction: row;
+      position: relative;
+}
+
+.cards-container>.web, .cards-container>.android, .cards-container>.ios {
+      border: 1px solid violet;
+      width: 30%;
+      height: 80%;
+      /* margin: auto; */
+      position: absolute;
+      top: 10%;
 
 }
 
-.services>div:hover div>img {
-      filter: grayscale(0%);
-      transform: scale(1);
+.cards-container>.web {
+      border: 2px solid yellow;
+      left: 35%;
 }
 
-.services>div>div:nth-child(1) {
-      width: 45%;
-      height: 100%;
-      background-color: white;
-      box-sizing: border-box;
-      overflow: hidden;
+.cards-container>.android {
+      border: 2px solid green;
+      right: 0%;
 }
 
-.services>div>div>img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transform: scale(0.95);
-      filter: grayscale(100%);
-      transition: ease-in-out 0.5s;
+.cards-container>.ios {
+      border: 2px solid blue;
+      left: 0%;
 }
 
-.services>div>div:nth-child(2) {
-      width: 45%;
-      height: 100%;
-      box-sizing: border-box;
-      background-color: white;
-      color: #000000;
-      padding: 20px 15px;
+.cards-container>.active {
+      border: 2px solid gold;
 }
 
-.services>div>div>.content-title {
-      border-bottom: 2px solid #000000;
-      height: fit-content;
-      width: fit-content;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 2vw;
-      text-align: center;
-      box-sizing: border-box;
-      margin: 0 auto 0 auto;
-      padding: 5px 7px;
+.card-slider>.prev-btn, .card-slider>.next-btn {
+      border: 2px solid blue;
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: calc(100%/2 - 30px);
 }
 
-.services>div:hover div>img {
-      filter: grayscale(0%);
-      transform: scale(1);
+.card-slider>.prev-btn {
+      background-image: url("../assets/prev.png");
+      background-size: contain;
+      left: 2vw;
 }
 
-.services>div>div>.content {
-      /* border: 1px solid salmon; */
-      max-height: 80%;
-      padding: 10px 15px;
-      margin-top: 0px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-size: 1.2vw;
-      text-align: justify;
-      text-indent: 10%;
-      box-sizing: border-box;
-      cursor: default;
-      white-space: normal;
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-box-orient: vertical;
-      -webkit-line-clamp: 11;
-      overflow: hidden;
-      text-align: justify;
+.card-slider>.next-btn {
+      background-image: url("../assets/next.png");
+      background-size: contain;
+      right: 2vw;
+
 }
 
 @media only screen and (max-width: 950px) {
@@ -467,51 +467,6 @@
 
       .main-div1>.scroll-btn {
             visibility: hidden;
-      }
-
-}
-
-@media only screen and (max-width: 1280px) {
-
-      .homepage>.projects {
-            /* border: 2px solid red; */
-            height: fit-content;
-            box-sizing: border-box;
-      }
-
-      .projects>.services {
-            height: fit-content;
-            width: 100%;
-            /* border: 1px solid green; */
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            margin: 3vh auto auto auto;
-      }
-
-      .services>div {
-            /* border: 2px solid red; */
-            width: 85%;
-            height: 30vw;
-            margin: 10px auto 10px auto;
-            display: flex;
-            flex-direction: row;
-      }
-
-      .services>div>div:nth-child(1) {
-            /* border: 1px solid rgb(255, 0, 247); */
-            width: 45%;
-            background-color: white;
-            box-sizing: border-box;
-            overflow: hidden;
-      }
-
-      .services>div>div:nth-child(2) {
-            width: 55%;
-            box-sizing: border-box;
-            background-color: white;
-            color: #000000;
-            padding: 20px 15px;
       }
 
 }

@@ -15,6 +15,8 @@ function HomePage() {
   const [randomClientCalc, setRandomClientCalc] = useState(0);
   const [div1, setDiv1] = useState(false);
   const [div1Visibility, setDiv1Visibility] = useState(0);
+  const [servicesCards, setServicesCards] = useState([]);
+  const [activeServiceCard, setActiveServiceCard] = useState(0);
 
   let titleColorInterval;
 
@@ -23,7 +25,6 @@ function HomePage() {
       scrollArea >= window.innerHeight &&
       scrollArea <= 2 * window.innerHeight
     ) {
-      console.log("SETTING DIV-I");
       setDiv1(true);
     } else if (
       scrollArea <= window.innerHeight / 4 ||
@@ -46,14 +47,53 @@ function HomePage() {
     }
   }, [location.pathname]);
 
+  useEffect(() => {
+    setServicesCards(document.querySelectorAll(".card"));
+  }, []);
+
+  //Change Card Style...
+
+  useEffect(() => {
+    // console.log(servicesCards);
+
+    if (servicesCards.length > 0) {
+      if (activeServiceCard === 0) {
+        console.log("S : ", activeServiceCard);
+        servicesCards[2].style = "border : 2px solid blue; right : 0;";
+        servicesCards[activeServiceCard].style =
+          "border : 4px solid yellow;left: 35%;";
+        servicesCards[activeServiceCard + 1].style =
+          "border : 2px solid green; right : 0";
+      } else if (activeServiceCard === 2) {
+        console.log("SAS : ", activeServiceCard);
+        servicesCards[activeServiceCard - 1].style =
+          "border : 2px solid blue; right : 0";
+        servicesCards[activeServiceCard].style =
+          "border : 4px solid yellow;left: 35%;";
+        servicesCards[0].style = "border : 2px solid green; left : 0";
+      } else if (activeServiceCard > 0) {
+        console.log(
+          "AASAS : ",
+          activeServiceCard,
+          activeServiceCard - 1,
+          activeServiceCard + 1
+        );
+        servicesCards[activeServiceCard + 1].style =
+          "border : 2px solid green; right : 0";
+        servicesCards[activeServiceCard - 1].style =
+          "border : 4px solid blue; right : 0";
+        servicesCards[activeServiceCard].style =
+          "border : 2px solid yellow;right: 35%;";
+      }
+    }
+  }, [activeServiceCard]);
+
   const handleScroll = (event, scroll) => {
     const scrollTOP = scroll.scrollTop;
     const scrollTOP2 = scrollTOP * 2;
     const scrollHEIGHT = window.innerHeight;
 
     setScrollArea(scroll.scrollTop);
-
-    console.log("SCROLLED AREA : ", scrollTOP);
 
     document.getElementById("title").style.opacity =
       (scrollHEIGHT - scrollTOP2) / scrollHEIGHT;
@@ -74,9 +114,8 @@ function HomePage() {
   };
 
   const handleScrollBtnClick = (scroll) => {
-    scroll.scrollTop = window.innerHeight;
+    scroll.scrollTop = window.innerHeight - "22";
     setDiv1(true);
-    console.log("SCROLLING : ", scroll.scrollTop);
     setScrollArea(scroll.scrollTop);
   };
 
@@ -132,12 +171,30 @@ function HomePage() {
     var randomColor4 = Math.floor(Math.random() * 16777215).toString(16);
     var randomColor5 = Math.floor(Math.random() * 16777215).toString(16);
 
-    console.log("COLOR 1 : ", randomColor1, "COLOR 2 : ", randomColor2);
-
     let opacity = 0;
     const titleDiv = document.getElementById("title");
     titleDiv.style.opacity = opacity;
     titleDiv.style.backgroundImage = `linear-gradient(to right, #${randomColor1}, #${randomColor2}, #${randomColor3}, #${randomColor4}, #${randomColor5})`;
+  };
+
+  const handlePrevBtn = () => {
+    if (activeServiceCard - 1 >= 0) {
+      setActiveServiceCard(activeServiceCard - 1);
+      // console.log("CLICK BUTTON  + 1  : ", activeServiceCard);
+    } else {
+      setActiveServiceCard(servicesCards.length - 1);
+      // console.log("CLICK BUTTON : ", activeServiceCard);
+    }
+  };
+
+  const handleNextBtn = () => {
+    if (activeServiceCard + 1 <= servicesCards.length - 1) {
+      setActiveServiceCard(activeServiceCard + 1);
+      // console.log("CLICK BUTTON  + 1  : ", activeServiceCard);
+    } else {
+      setActiveServiceCard(0);
+      // console.log("CLICK BUTTON : ", activeServiceCard);
+    }
   };
 
   return (
@@ -195,80 +252,21 @@ function HomePage() {
 
         <div className="projects">
           <div className="services">
-            <div className="web-dev services-card">
-              <div>
-                <img
-                  src="https://sketch-cdn.imgix.net/assets/blog/sketch-ui-design%402x.png?ixlib=rb-4.1.0&fit=max&w=1920&q=95&auto=format&fm=png&s=74863334ced26f21e3342c0c375f1dae"
-                  alt=""
-                />
-              </div>
-              <div className="content-div">
-                <div className="content-title">Web Design</div>
-                <div className="content">
-                  Web design for UI/UX websites is crucial in creating an
-                  engaging and user-friendly digital experience. It involves the
-                  strategic combination of visual aesthetics, functionality, and
-                  usability. A well-designed UI/UX website focuses on intuitive
-                  navigation, clear call-to-actions, and seamless interactions.
+            <p className="title">Services</p>
+            <div className="card-slider">
+              <div className="prev-btn" onClick={handlePrevBtn}></div>
+              <div className="cards-container">
+                <div className="web card">
+                  <p>Website</p>
+                </div>
+                <div className="android card">
+                  <p>Android</p>
+                </div>
+                <div className="ios card">
+                  <p>iOS</p>
                 </div>
               </div>
-            </div>
-            <div className="android-dev services-card">
-              <div>
-                <img
-                  src="https://static.tildacdn.com/tild3635-3462-4130-b833-663465336530/bh_capitalist.png"
-                  alt=""
-                />
-              </div>
-              <div className="content-div">
-                <div className="content-title">Android App Design</div>
-                <div className="content">
-                  Android app design for UI/UX websites plays a vital role in
-                  delivering an exceptional mobile experience. It involves
-                  creating visually appealing and intuitive interfaces that
-                  engage users. Effective app design focuses on simplicity and
-                  ease of use, with clear navigation and intuitive gestures.
-                </div>
-              </div>
-            </div>
-            <div className="ios-dev services-card">
-              <div>
-                <img
-                  src="https://assets.justinmind.com/wp-content/uploads/2018/03/iphone-x-app-design-inspiration-ux-design-jae-seong.png"
-                  alt=""
-                />
-              </div>
-              <div className="content-div">
-                <div className="content-title">iOS App Design</div>
-                <div className="content">
-                  iOS app design for UI/UX websites plays a crucial role in
-                  delivering a seamless and engaging user experience on Apple
-                  devices. It focuses on creating visually stunning and
-                  intuitive interfaces that captivate users. Attention to
-                  detail, such as precise typography, clean layouts, and
-                  consistent iconography, enhances the overall aesthetics and
-                  brand recognition.
-                </div>
-              </div>
-            </div>
-            <div className="desktop-dev services-card">
-              <div>
-                <img
-                  src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2018/09/WHAT-IS-WEB-DESIGN.jpg?auto=format&q=60&w=1860&h=1046.25&fit=crop&crop=faces"
-                  alt=""
-                />
-              </div>
-              <div className="content-div">
-                <div className="content-title">Desktop App Design</div>
-                <div className="content">
-                  Desktop app design for UI/UX websites is crucial in creating a
-                  powerful and user-friendly software experience on desktop
-                  platforms. It focuses on delivering a visually appealing and
-                  intuitive interface that enhances productivity and user
-                  satisfaction. Thoughtful placement of features and intuitive
-                  interactions streamline the user journey.
-                </div>
-              </div>
+              <div className="next-btn" onClick={handleNextBtn}></div>
             </div>
           </div>
         </div>

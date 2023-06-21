@@ -5,9 +5,7 @@ import Footer from "../components/Footer";
 function LoginPage() {
   const scrollRef = useRef();
 
-  const handleScrolling = () => {
-    console.log("Scrolling...");
-  };
+  const handleScrolling = () => {};
 
   const handleContactInfoSubmit = () => {
     window.alert("Thank You For Contact Us...");

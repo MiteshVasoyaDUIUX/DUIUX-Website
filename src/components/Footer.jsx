@@ -3,20 +3,12 @@ import "./Footer.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
 function Footer() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const [playLocAnim, setPlayLocAnim] = useState(false);
   const [playCallAnim, setPlayCallAnim] = useState(false);
   const [playEmailAnim, setPlayEmailAnim] = useState(false);
 
-  const footerClass =
-    location.pathname === "/portfolio" ? "footer black-footer" : "footer";
-
-  // console.log("Footer Class : ", footerClass);
-
   return (
-    <div className={footerClass}>
+    <div className="footer">
       <div className="contact-details">
         <div
           className="location"
@@ -116,11 +108,11 @@ function Footer() {
           <div className="useful-links">USEFUL LINKS</div>
           <div className="links">
             <div>
-              <div onClick={() => navigate("/")}>Home</div>
-              <div onClick={() => navigate("/portfolio")}>Portfolio</div>
+              <div>Home</div>
+              <div>Portfolio</div>
               <div>Services</div>
-              <div onClick={() => navigate("/aboutus")}>About</div>
-              <div onClick={() => navigate("/contactus")}>Contact</div>
+              <div>About</div>
+              <div>Contact</div>
               <div>Latest News</div>
             </div>
           </div>
