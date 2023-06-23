@@ -3,11 +3,34 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import "./HomePage.css";
 import Footer from "../components/Footer";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 function HomePage() {
   const scrollRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
+
+  const services = [
+    {
+      img: "https://sketch-cdn.imgix.net/assets/blog/sketch-ui-design%402x.png?ixlib=rb-4.1.0&fit=max&w=1920&q=95&auto=format&fm=png&s=74863334ced26f21e3342c0c375f1dae",
+      title: "Web Design",
+      content:
+        "Web UI/UX design refers to the process of creating visually appealing and user-friendly interfaces for websites. It involves the careful consideration of various design elements, such as layout, typography, color schemes, imagery, and navigation patterns, to provide an intuitive and engaging user experience. A successful web UI/UX design aims to enhance usability, accessibility, and overall user satisfaction. It starts with user research and analysis to understand user needs, goals, and behaviors. Wireframing and prototyping help in visualizing and refining the design concepts.",
+    },
+    {
+      img: "https://static.tildacdn.com/tild3635-3462-4130-b833-663465336530/bh_capitalist.png",
+      title: "Android Design",
+      content:
+        "Android UI/UX design refers to the process of creating visually appealing and user-friendly interfaces for Android mobile applications. It involves the careful consideration of various design elements, such as layout, typography, color schemes, icons, and navigation patterns, to provide an intuitive and seamless user experience. A successful Android UI/UX design aims to enhance usability, efficiency, and overall user satisfaction. It starts with user research and analysis to understand user needs, preferences, and behaviors. Prototyping and wireframing help in visualizing and refining the design concepts.",
+    },
+    {
+      img: "https://assets.justinmind.com/wp-content/uploads/2018/03/iphone-x-app-design-inspiration-ux-design-jae-seong.png",
+      title: "iOS Design",
+      content:
+        "iOS UI/UX design refers to the process of creating visually appealing and user-friendly interfaces for iOS mobile applications. It involves the careful consideration of various design elements, such as layout, typography, color schemes, icons, and navigation patterns, to provide an intuitive and seamless user experience. A successful iOS UI/UX design aims to enhance usability, efficiency, and overall user satisfaction. It starts with user research and analysis to understand user needs, preferences, and behaviors. Prototyping and wireframing help in visualizing and refining the design concepts.",
+    },
+  ];
 
   const [scrollArea, setScrollArea] = useState(0);
   const [randomProjCalc, setRandomProjCalc] = useState(0);
@@ -15,8 +38,9 @@ function HomePage() {
   const [randomClientCalc, setRandomClientCalc] = useState(0);
   const [div1, setDiv1] = useState(false);
   const [div1Visibility, setDiv1Visibility] = useState(0);
-  const [servicesCards, setServicesCards] = useState([]);
-  const [activeServiceCard, setActiveServiceCard] = useState(0);
+  const [prevServiceCards, setPrevServiceCards] = useState(0);
+  const [activeServiceCards, setActiveServiceCards] = useState(1);
+  const [nextServiceCards, setNextServiceCards] = useState(2);
 
   let titleColorInterval;
 
@@ -46,47 +70,6 @@ function HomePage() {
       clearInterval(titleColorInterval);
     }
   }, [location.pathname]);
-
-  useEffect(() => {
-    setServicesCards(document.querySelectorAll(".card"));
-  }, []);
-
-  //Change Card Style...
-
-  useEffect(() => {
-    // console.log(servicesCards);
-
-    if (servicesCards.length > 0) {
-      if (activeServiceCard === 0) {
-        console.log("S : ", activeServiceCard);
-        servicesCards[2].style = "border : 2px solid blue; right : 0;";
-        servicesCards[activeServiceCard].style =
-          "border : 4px solid yellow;left: 35%;";
-        servicesCards[activeServiceCard + 1].style =
-          "border : 2px solid green; right : 0";
-      } else if (activeServiceCard === 2) {
-        console.log("SAS : ", activeServiceCard);
-        servicesCards[activeServiceCard - 1].style =
-          "border : 2px solid blue; right : 0";
-        servicesCards[activeServiceCard].style =
-          "border : 4px solid yellow;left: 35%;";
-        servicesCards[0].style = "border : 2px solid green; left : 0";
-      } else if (activeServiceCard > 0) {
-        console.log(
-          "AASAS : ",
-          activeServiceCard,
-          activeServiceCard - 1,
-          activeServiceCard + 1
-        );
-        servicesCards[activeServiceCard + 1].style =
-          "border : 2px solid green; right : 0";
-        servicesCards[activeServiceCard - 1].style =
-          "border : 4px solid blue; right : 0";
-        servicesCards[activeServiceCard].style =
-          "border : 2px solid yellow;right: 35%;";
-      }
-    }
-  }, [activeServiceCard]);
 
   const handleScroll = (event, scroll) => {
     const scrollTOP = scroll.scrollTop;
@@ -177,24 +160,25 @@ function HomePage() {
     titleDiv.style.backgroundImage = `linear-gradient(to right, #${randomColor1}, #${randomColor2}, #${randomColor3}, #${randomColor4}, #${randomColor5})`;
   };
 
-  const handlePrevBtn = () => {
-    if (activeServiceCard - 1 >= 0) {
-      setActiveServiceCard(activeServiceCard - 1);
-      // console.log("CLICK BUTTON  + 1  : ", activeServiceCard);
-    } else {
-      setActiveServiceCard(servicesCards.length - 1);
-      // console.log("CLICK BUTTON : ", activeServiceCard);
-    }
+  const handlePrevClick = () => {
+    const tempVar = activeServiceCards;
+    setActiveServiceCards(prevServiceCards);
+    setPrevServiceCards(nextServiceCards);
+    setNextServiceCards(tempVar);
+  };
+  const handleNextClick = () => {
+    const tempVar = activeServiceCards;
+    setActiveServiceCards(nextServiceCards);
+    setNextServiceCards(prevServiceCards);
+    setPrevServiceCards(tempVar);
   };
 
-  const handleNextBtn = () => {
-    if (activeServiceCard + 1 <= servicesCards.length - 1) {
-      setActiveServiceCard(activeServiceCard + 1);
-      // console.log("CLICK BUTTON  + 1  : ", activeServiceCard);
-    } else {
-      setActiveServiceCard(0);
-      // console.log("CLICK BUTTON : ", activeServiceCard);
-    }
+  const handleMouseOnCard = (e) => {
+    const target = e.target;
+    console.log("CLIENT X : ", e.clientX / window.innerWidth);
+
+    target.style.backgroundPositionX = `${e.clientX / window.innerWidth}%`;
+    target.style.backgroundPositionY = `${e.clientY / window.innerHeight}%`;
   };
 
   return (
@@ -254,19 +238,40 @@ function HomePage() {
           <div className="services">
             <p className="title">Services</p>
             <div className="card-slider">
-              <div className="prev-btn" onClick={handlePrevBtn}></div>
-              <div className="cards-container">
-                <div className="web card">
-                  <p>Website</p>
+              <div className="prev-btn" onClick={handlePrevClick}></div>
+              <div
+                className="left-card"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(${services[prevServiceCards].img})`,
+                  backgroundSize: "120%",
+                  backgroundPosition: "10% 10%",
+                }}
+              ></div>
+              <div
+                className="main-card"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.80)), url(${services[activeServiceCards].img})`,
+                  backgroundSize: "120%",
+                  backgroundPosition: "10% 10%",
+                }}
+                onMouseMove={(e) => handleMouseOnCard(e)}
+              >
+                <div className="title">
+                  {services[activeServiceCards].title}
                 </div>
-                <div className="android card">
-                  <p>Android</p>
-                </div>
-                <div className="ios card">
-                  <p>iOS</p>
+                <div className="content">
+                  {services[activeServiceCards].content}
                 </div>
               </div>
-              <div className="next-btn" onClick={handleNextBtn}></div>
+              <div
+                className="right-card"
+                style={{
+                  backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(${services[nextServiceCards].img})`,
+                  backgroundSize: "120%",
+                  backgroundPosition: "10% 10%",
+                }}
+              ></div>
+              <div className="next-btn" onClick={handleNextClick}></div>
             </div>
           </div>
         </div>

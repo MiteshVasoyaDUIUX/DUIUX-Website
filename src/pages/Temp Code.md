@@ -44,13 +44,13 @@
               <div className="content-div">
                 <div className="content-title">iOS App Design</div>
                 <div className="content">
-                  iOS app design for UI/UX websites plays a crucial role in
+                  "iOS app design for UI/UX websites plays a crucial role in
                   delivering a seamless and engaging user experience on Apple
                   devices. It focuses on creating visually stunning and
                   intuitive interfaces that captivate users. Attention to
                   detail, such as precise typography, clean layouts, and
                   consistent iconography, enhances the overall aesthetics and
-                  brand recognition.
+                  brand recognition."
                 </div>
               </div>
             </div>
