@@ -16,16 +16,12 @@
 
 .header>.header-logo {
       /* border: 1px solid red; */
-      width: 10%;
+      width: 200px;
       height: 100%;
       margin: auto 0 auto 5%;
       box-sizing: border-box;
       text-align: center;
       padding: 0 40px;
-      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans',
-            Arial, sans-serif;
-      font-size: 40px;
-      font-weight: 600;
       cursor: pointer;
       overflow: hidden;
 }
@@ -45,7 +41,13 @@
       flex-direction: row;
 }
 
+.header-menu>div {
+      display: flex;
+      flex-direction: row;
+}
+
 .header-menu .home-btn, .header-menu .aboutus-btn, .header-menu .explore-btn {
+      border-bottom: 1px solid rgb(0, 0, 0);
       height: fit-content;
       width: fit-content;
       margin: auto 10px auto 10px;
@@ -58,6 +60,28 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       transition: 0.2s ease-in-out;
       z-index: 1;
+      opacity: 1;
+      color: rgba(255, 255, 255, 0.450);
+      position: relative;
+}
+
+.header-menu .home-btn:hover, .header-menu .aboutus-btn:hover, .header-menu .explore-btn:hover {
+      color: white;
+}
+
+.header-menu .home-btn::after, .header-menu .aboutus-btn::after, .header-menu .explore-btn::after {
+      background: white;
+      content: "";
+      width: 0%;
+      height: 2px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      transition: ease-in-out 0.4s;
+}
+
+.header-menu .home-btn:hover::after, .aboutus-btn:hover::after, .aboutus-btn:hover::after, .explore-btn:hover::after {
+      width: 100%;
 }
 
 .header-menu .active-home-btn, .header-menu .active-aboutus-btn, .header-menu .active-explore-btn {
@@ -94,13 +118,6 @@
       z-index: 1;
 }
 
-.header-menu .home-btn:hover, .aboutus-btn:hover, .aboutus-btn:hover, .explore-btn:hover {
-      border-radius: 5px;
-      box-sizing: border-box;
-      background-color: #fffffff3;
-      color: #000000;
-}
-
 .header-menu .contactus-btn {
       border: 2px solid #f7f7f7;
       background-color: white;
@@ -126,4 +143,64 @@
       transition: .3s, -webkit-mask-size .3s .3s;
       background-color: #000000;
       color: #ffffff;
+}
+
+.header-menu .hambg-menu {
+      width: 35px;
+      height: 35px;
+      display: none;
+      margin: auto 10px;
+      position: relative;
+}
+
+.hambg-menu>img {
+      width: 100%;
+      height: 100%;
+
+}
+
+.hambg-menu>ul {
+      border: 1px solid rgb(0, 0, 0);
+      border-radius: 15px 0;
+      background-color: white;
+      color: black;
+      width: 100px;
+      height: fit-content;
+      margin: 0;
+      padding: 10px 0;
+      list-style: none;
+      position: absolute;
+      bottom: -145px;
+      right: 0;
+}
+
+.hambg-menu>ul>li {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+}
+
+.hambg-menu>ul>li>a {
+      padding: 5px 10px;
+      text-align: center;
+      color: black;
+      text-decoration: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+}
+
+.hambg-menu>ul>li>a:hover {
+      background-color: #00000071;
+}
+
+@media only screen and (max-width: 700px) {
+      .header-menu .hambg-menu {
+            /* border: 1px solid rgb(2, 255, 44); */
+            display: block;
+      }
+
+      .header-menu>div {
+            display: none;
+      }
 }

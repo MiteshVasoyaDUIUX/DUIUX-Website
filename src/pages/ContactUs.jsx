@@ -71,6 +71,7 @@ function LoginPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

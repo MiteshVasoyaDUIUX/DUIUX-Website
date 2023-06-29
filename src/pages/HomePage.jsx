@@ -5,32 +5,14 @@ import "./HomePage.css";
 import Footer from "../components/Footer";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import WebIcon from "../assets/Web Icon.png";
+import AndroidIcon from "../assets/Android Icon.png";
+import AppleIcon from "../assets/Apple Icon.png";
 
 function HomePage() {
   const scrollRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-
-  const services = [
-    {
-      img: "https://sketch-cdn.imgix.net/assets/blog/sketch-ui-design%402x.png?ixlib=rb-4.1.0&fit=max&w=1920&q=95&auto=format&fm=png&s=74863334ced26f21e3342c0c375f1dae",
-      title: "Web Design",
-      content:
-        "Web UI/UX design refers to the process of creating visually appealing and user-friendly interfaces for websites. It involves the careful consideration of various design elements, such as layout, typography, color schemes, imagery, and navigation patterns, to provide an intuitive and engaging user experience. A successful web UI/UX design aims to enhance usability, accessibility, and overall user satisfaction. It starts with user research and analysis to understand user needs, goals, and behaviors. Wireframing and prototyping help in visualizing and refining the design concepts.",
-    },
-    {
-      img: "https://static.tildacdn.com/tild3635-3462-4130-b833-663465336530/bh_capitalist.png",
-      title: "Android Design",
-      content:
-        "Android UI/UX design refers to the process of creating visually appealing and user-friendly interfaces for Android mobile applications. It involves the careful consideration of various design elements, such as layout, typography, color schemes, icons, and navigation patterns, to provide an intuitive and seamless user experience. A successful Android UI/UX design aims to enhance usability, efficiency, and overall user satisfaction. It starts with user research and analysis to understand user needs, preferences, and behaviors. Prototyping and wireframing help in visualizing and refining the design concepts.",
-    },
-    {
-      img: "https://assets.justinmind.com/wp-content/uploads/2018/03/iphone-x-app-design-inspiration-ux-design-jae-seong.png",
-      title: "iOS Design",
-      content:
-        "iOS UI/UX design refers to the process of creating visually appealing and user-friendly interfaces for iOS mobile applications. It involves the careful consideration of various design elements, such as layout, typography, color schemes, icons, and navigation patterns, to provide an intuitive and seamless user experience. A successful iOS UI/UX design aims to enhance usability, efficiency, and overall user satisfaction. It starts with user research and analysis to understand user needs, preferences, and behaviors. Prototyping and wireframing help in visualizing and refining the design concepts.",
-    },
-  ];
 
   const [scrollArea, setScrollArea] = useState(0);
   const [randomProjCalc, setRandomProjCalc] = useState(0);
@@ -160,27 +142,6 @@ function HomePage() {
     titleDiv.style.backgroundImage = `linear-gradient(to right, #${randomColor1}, #${randomColor2}, #${randomColor3}, #${randomColor4}, #${randomColor5})`;
   };
 
-  const handlePrevClick = () => {
-    const tempVar = activeServiceCards;
-    setActiveServiceCards(prevServiceCards);
-    setPrevServiceCards(nextServiceCards);
-    setNextServiceCards(tempVar);
-  };
-  const handleNextClick = () => {
-    const tempVar = activeServiceCards;
-    setActiveServiceCards(nextServiceCards);
-    setNextServiceCards(prevServiceCards);
-    setPrevServiceCards(tempVar);
-  };
-
-  const handleMouseOnCard = (e) => {
-    const target = e.target;
-    console.log("CLIENT X : ", e.clientX / window.innerWidth);
-
-    target.style.backgroundPositionX = `${e.clientX / window.innerWidth}%`;
-    target.style.backgroundPositionY = `${e.clientY / window.innerHeight}%`;
-  };
-
   return (
     <>
       <Header />
@@ -237,45 +198,62 @@ function HomePage() {
         <div className="projects">
           <div className="services">
             <p className="title">Services</p>
-            <div className="card-slider">
-              <div className="prev-btn" onClick={handlePrevClick}></div>
-              <div
-                className="left-card"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(${services[prevServiceCards].img})`,
-                  backgroundSize: "120%",
-                  backgroundPosition: "10% 10%",
-                }}
-              ></div>
-              <div
-                className="main-card"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.80), rgba(0,0,0,0.80)), url(${services[activeServiceCards].img})`,
-                  backgroundSize: "120%",
-                  backgroundPosition: "10% 10%",
-                }}
-                onMouseMove={(e) => handleMouseOnCard(e)}
-              >
-                <div className="title">
-                  {services[activeServiceCards].title}
-                </div>
+            <div className="cards-container">
+              <div className="cardbox">
+                <img src={WebIcon} alt="" />
+                <div className="title">Web Development</div>
                 <div className="content">
-                  {services[activeServiceCards].content}
+                  Web UI/UX design refers to the process of creating visually
+                  appealing and user-friendly interfaces for websites. It
+                  involves the careful consideration of various design elements,
+                  such as layout, typography, color schemes, imagery, and
+                  navigation patterns, to provide an intuitive and engaging user
+                  experience. A successful web UI/UX design aims to enhance
+                  usability, accessibility, and overall user satisfaction. It
+                  starts with user research and analysis to understand user
+                  needs, goals, and behaviors. Wireframing and prototyping help
+                  in visualizing and refining the design concepts.
+                  <br />
                 </div>
               </div>
-              <div
-                className="right-card"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(${services[nextServiceCards].img})`,
-                  backgroundSize: "120%",
-                  backgroundPosition: "10% 10%",
-                }}
-              ></div>
-              <div className="next-btn" onClick={handleNextClick}></div>
+              <div className="cardbox">
+                <img src={AndroidIcon} alt="" />
+                <div className="title">Android Development</div>
+                <div className="content">
+                  Android UI/UX design refers to the process of creating
+                  visually appealing and user-friendly interfaces for Android
+                  mobile applications. It involves the careful consideration of
+                  various design elements, such as layout, typography, color
+                  schemes, icons, and navigation patterns, to provide an
+                  intuitive and seamless user experience. A successful Android
+                  UI/UX design aims to enhance usability, efficiency, and
+                  overall user satisfaction. It starts with user research and
+                  analysis to understand user needs, preferences, and behaviors.
+                  Prototyping and wireframing help in visualizing and refining
+                  the design concepts.
+                </div>
+              </div>
+              <div className="cardbox">
+                <img src={AppleIcon} alt="" />
+                <div className="title">iOS Development</div>
+                <div className="content">
+                  iOS UI/UX design refers to the process of creating visually
+                  appealing and user-friendly interfaces for iOS mobile
+                  applications. It involves the careful consideration of various
+                  design elements, such as layout, typography, color schemes,
+                  icons, and navigation patterns, to provide an intuitive and
+                  seamless user experience. A successful iOS UI/UX design aims
+                  to enhance usability, efficiency, and overall user
+                  satisfaction. It starts with user research and analysis to
+                  understand user needs, preferences, and behaviors. Prototyping
+                  and wireframing help in visualizing and refining the design
+                  concepts.
+                </div>
+              </div>
             </div>
           </div>
+          <Footer />
         </div>
-        <Footer />
       </div>
     </>
   );

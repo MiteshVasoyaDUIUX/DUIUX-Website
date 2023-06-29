@@ -107,14 +107,26 @@ function Footer() {
         <div className="subdiv2">
           <div className="useful-links">USEFUL LINKS</div>
           <div className="links">
-            <div>
-              <div>Home</div>
-              <div>Portfolio</div>
-              <div>Services</div>
-              <div>About</div>
-              <div>Contact</div>
-              <div>Latest News</div>
-            </div>
+            <ul>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/portfolio">Portfolio</a>
+              </li>
+              <li>
+                <a href="#">Services</a>
+              </li>
+              <li>
+                <a href="/aboutus">About Us</a>
+              </li>
+              <li>
+                <a href="/contactus">Contact</a>
+              </li>
+              <li>
+                <a href="#">Latest News</a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="subdiv3">
